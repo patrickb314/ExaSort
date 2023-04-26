@@ -1,10 +1,13 @@
 
 #configure_file(Beatnik_Config.hpp.in Beatnik_Config.hpp)
 
-#set(HEADERS
-  #ExaSort.hpp
-
-#)
+set(HEADERS
+  ExaSort.hpp
+  KokkosSorter.hpp
+  BitonicSorter.hpp
+# MultiBitonicSorter.hpp
+# SampleSorter.hpp
+)
 
 set(DEPENDS_ON
   Kokkos::Kokkos
@@ -16,7 +19,7 @@ set(INCLUDES
     ${CMAKE_CURRENT_BINARY_DIR}
   )
        
-blt_add_library( NAME ExaSort
+blt_add_library( NAME exasort
                  HEADERS ${HEADERS}
                  SOURCES ${SOURCES}
                  INCLUDES ${INCLUDES}
