@@ -15,7 +15,6 @@ ExaSort is a distributed sorting benchmark designed for two purposes:
 ExaSort has the following key components implemented as template classes the provide the relevant entry points and concepts based on the C++ std::ranges::sort interface.
   * Driver - 
   * DistributedSort - 
-std::random_access_iterator I, std::sentinel_for<I> S,
 
 Development Plan:
 
@@ -37,3 +36,8 @@ Sort Modeling
   1. Create interface to sort performance for each algorithm 
 
 In addition, ExaSort is designed to drive the development of  on  Crucially, ExaSort seeks to //adapt// the sorting algorithm used based on th different sot=  evaluate the performance of different distributed sorting approaches on GPU-accelerated systems. appro uses Kokkos for the local sort  
+
+## References
+
+  1. Sample sort: https://math.mit.edu/~edelman/publications/scalable_parallel.pdf
+  1. Reference on different sorting algorithms: https://arxiv.org/pdf/1511.03404.pdf

@@ -69,23 +69,17 @@ endif()
 
 # Default to C++17 so we can use if constexpr and [[maybe_unused]]
 if (NOT BLT_CXX_STD)
-    set(BLT_CXX_STD "c++14" CACHE STRING "")
+    set(BLT_CXX_STD "c++17" CACHE STRING "")
 endif()
 
 include(${BLT_SOURCE_DIR}/SetupBLT.cmake)
 
 ##---------------------------------------------------------------------------##
-## Get the dependent packages we need, primarily Cabana, Silo, ClangFormat,  ##
-## and perhaps PvFMM                                                         ##
+## Get the dependent packages we need, primarily Kokkos and ClangFormat      ##
+## We will later want MPIAdvance here
 ##---------------------------------------------------------------------------##
-find_package(Cabana REQUIRED COMPONENTS Cabana::Cajita Cabana::cabanacore)
-if( NOT Cabana_ENABLE_MPI )
-  message( FATAL_ERROR "Cabana must be compiled with MPI" )
-endif()
-if( NOT Cabana_ENABLE_CAJITA )
-  message( FATAL_ERROR "Cabana must be compiled with Cajita" )
-endif()
-find_package(Silo REQUIRED)
+# Get Kokkos to for local node parallelism and sorting
+find_package(Kokkos 4.0 REQUIRED)
 
 # Get Clang Format to use for making sure the resulting code is
 # properly formatted
